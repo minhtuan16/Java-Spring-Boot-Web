@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Danh sach User</title>
+</head>
+<body>
+
+	<p>
+		<a th:href="@{/user/create}">Create</a>
+	</p>
+	
+	<p>
+		<a th:href="@{/user/search-theo-ten}">Tim kiem theo ten</a>
+	</p>
+	
+	<p>
+		<a th:href="@{/user/search-theo-role}">Tim kiem theo role</a>
+	</p>
+	
+	<p>
+		<a th:href="@{/user/search-theo-username}">Tim kiem theo username</a>
+	</p>
+	
+	<div th:each="user : ${list}">
+		<p>
+			<span>ID:</span>
+			<span th:text="${user.id}"></span>
+		</p>
+		
+		<p>
+			<span>Name:</span>
+			<span th:text="${user.name}"></span>
+		</p>
+		
+		<p>
+			<span>Username:</span>
+			<span th:text="${user.username}"></span>
+		</p>
+		
+		<p>
+			<span>Password:</span>
+			<span th:text="${user.password}"></span>
+		</p>
+		
+		<p>
+			<span>Role:</span>
+			<span th:text="${user.role}"></span>
+		</p>
+		
+		<p>
+			<a th:href="@{'/user/delete?id=' + ${user.id}}">Delete</a>
+			<a th:href="@{'/user/update?id=' + ${user.id}}">Update</a>
+			
+		</p>
+		
+		<p>---------------</p>
+	</div>
+</body>
+</html>

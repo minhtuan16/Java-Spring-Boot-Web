@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Danh sach User</title>
+</head>
+<body>
+
+	<form th:action="@{/user/search-theo-ten}" method = "get">
+		<input name = "keyword" placeholder="Tim theo ten">
+		<button>Search</button>
+		
+		<a th:href="@{/user/search}">Back</a>
+	</form>
+	
+	
+	<div th:each="user : ${list}">
+		<p>
+			<span>ID:</span>
+			<span th:text="${user.id}"></span>
+		</p>
+		
+		<p>
+			<span>Name:</span>
+			<span th:text="${user.name}"></span>
+		</p>
+		
+		<p>
+			<span>Username:</span>
+			<span th:text="${user.username}"></span>
+		</p>
+		
+		<p>
+			<span>Password:</span>
+			<span th:text="${user.password}"></span>
+		</p>
+		
+		<p>
+			<span>Role:</span>
+			<span th:text="${user.role}"></span>
+		</p>
+		
+		<p>
+			<a th:href="@{'/user/delete?id=' + ${user.id}}">Delete</a>
+			<a th:href="@{'/user/update?id=' + ${user.id}}">Update</a>
+			
+		</p>
+		
+		
+		
+		<p>---------------</p>
+	</div>
+</body>
+</html>
