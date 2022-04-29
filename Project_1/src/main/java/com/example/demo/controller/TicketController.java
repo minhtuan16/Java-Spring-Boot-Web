@@ -87,15 +87,30 @@ public class TicketController {
 	}
 
 	@GetMapping("/search")
-	public String search(Model model, @RequestParam(name = "key", required = false) String s) {
+	public String search(Model model, @RequestParam(name = "key", required = false) String s, @RequestParam("id") int x) {
 		// neu khong co required = false thi loi duong truyen
 		// khi co required = false thi truyen String hay khong cung khong anh huong
+//		if (s == null) {
+//			List<Ticket> list = ticketRepo.findAll();
+//			model.addAttribute("list", list);
+//		} 
+//		
+//		if () {
+//			List<Ticket> list1 = ticketRepo.searchSDT("%" + s + "%");
+//			model.addAttribute("list1", list1);
+//		} 
+//		if (){
+//			
+//		}
 		
 		List<Ticket> list = ticketRepo.findAll();
 		model.addAttribute("list", list);
-		
 		return "ticket/search";
 		
 	}
-
+	
+//	@GetMapping("/searchID")
+//	public String searchID(Model model, @RequestParam("id", required = false) int x) {
+//		
+//	}
 }

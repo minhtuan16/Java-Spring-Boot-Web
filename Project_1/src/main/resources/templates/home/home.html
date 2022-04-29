@@ -18,27 +18,14 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row header">
-			<div class="col-12 col-sm-3 col-md-2">
-				<img alt="" th:src="@{/img/at_last_by_aenami_daojf90-fullview.png}"
-					class="logo" />
-			</div>
-
-			<div class="col-12 col-sm-9 col-md-10">
-				<h1>He thong cham soc khach hang</h1>
-			</div>
-		</div>
+		<div th:replace="home/header :: header-section"></div>
 
 		<div class="row body">
-			<div class="col-12 col-sm-3">
-				<ul class="list-group">
-					<li class="list-group-item">Quản lý khiếu nại</li>
-					<li class="list-group-item">Quản lý phòng ban</li>
-					<li class="list-group-item">Thoát</li>
-				</ul>
-			</div>
+			<<div th:replace="home/left-menu :: left-menu-section"></div>
+			
 
-			<div class="col-12 col-sm-9">
+
+			<div layout:fragment="content" class="col-12 col-sm-9">
 				<div class="row">
 					<form>
 						<div class="row">
@@ -49,8 +36,8 @@
 
 							<div class="col-12 col-md-2">
 								<div class="row">
-									<label class="col">Phòng ban:</label> 
-									<select class="form-select col">
+									<label class="col">Phòng ban:</label> <select
+										class="form-select col">
 										<option>Chọn</option>
 										<option>2</option>
 										<option>3</option>
@@ -61,16 +48,14 @@
 
 							<div class="col-12 col-md-2">
 								<div class="row">
-									<label class="col">From:</label> 
-									<input type="date"
+									<label class="col">From:</label> <input type="date"
 										class="form-control col" placeholder="dd/MM/yyyy">
 								</div>
 							</div>
 
 							<div class="col-12 col-md-2">
 								<div class="row">
-									<label class="col">To:</label> 
-									<input type="date"
+									<label class="col">To:</label> <input type="date"
 										class="form-control col" placeholder="dd/MM/yyyy">
 								</div>
 							</div>
@@ -124,9 +109,7 @@
 			</div>
 		</div>
 
-		<div class="row footer">
-			<p>Design by Minh</p>
-		</div>
+		<div th:replace="home/footer :: footer-section"></div>
 	</div>
 </body>
 </html>

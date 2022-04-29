@@ -14,4 +14,5 @@ public interface DepartmentRepo extends JpaRepository<Department, Integer>{
 	@Query("SELECT d FROM Department d WHERE d.name LIKE :x")
 	List<Department> search(@Param("x") String s);
 	
+	
 }

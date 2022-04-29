@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -33,11 +35,12 @@ public class Ticket {
 	private String traLoiKH;
 
 	@Column(name = "Trang_thai")
-	private String trangThai;
+	private boolean trangThai;
 
 	@Column(name = "Thoi_gian_xu_ly")
 	private Date xuLy;
 	
-//	@Column(name = "id_phong_ban")
-//	private int idPhong;
+	@ManyToOne
+	@JoinColumn(name = "id_phong_ban")
+	private Department department;
 }
