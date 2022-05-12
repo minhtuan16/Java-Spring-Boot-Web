@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html layout:decorator="home.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Update Department</title>
+</head>
+<body>
+	<div layout:fragment="form-body" class="col-12 col-sm-9">
+		<div class="row">
+			<h6>Update Department</h6>
+		</div>
+		<hr/>
+		<div class="row">
+			<form th:action="@{/department/update}" method="post">
+				<div class="mb-3">
+					<label class="form-label">Mã phòng:</label> 
+					<input readonly="readonly" th:value="${department.maPhong}" type="text" name="maPhong" class="form-control">
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Tên phòng:</label> 
+					<input th:value="${department.tenPhong}" type="text" name="tenPhong" class="form-control">
+				</div>
+				
+				<div class="mb-3">
+						<label class="form-label">Mô tả:</label> 
+						<input type="text" class="form-control" name="moTa" th:value="${department.tenPhong}">
+				</div>
+				
+				<div class="mb-3">
+						<label class="form-label">Hệ số công việc:</label> 
+						<input type="text" class="form-control" name="heSoCV" th:value="${department.heSoCV}">
+				</div>
+				
+				<div class="mb-3">
+					<button class="btn btn-primary" type="submit">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

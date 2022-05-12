@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html layout:decorator="home.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Employee</title>
+</head>
+<body>
+	<div layout:fragment="form-body" class="col-12 col-sm-9">
+		<div class="container mt-1">
+			<div class="row">
+				<h6>Create Employee</h6>
+			</div>
+			<hr />
+			<div class="row">
+
+				<form th:object="${emp}" th:action="@{/employee/create}" method="post">
+					<div class="mb-3">
+						<label for="pwd" class="form-label">Họ tên:</label> 
+						<input th:field="*{hoTen}" type="text" class="form-control" placeholder="Enter họ tên" name="hoTen">
+					</div>
+					<p th:errors="*{hoTen}" style="color:red;"></p>
+					
+					<div class="mb-3">
+						<label for="pwd" class="form-label">Địa chỉ:</label> 
+						<input th:field="*{diaChi}" type="text" class="form-control" placeholder="Enter địa chỉ" name="diaChi">
+					</div>
+					<p th:errors="*{diaChi}" style="color:red;"></p>
+					
+					<div class="mb-3">
+						<label for="pwd" class="form-label">Số điện thoại:</label> 
+						<input th:field="*{soDienThoai}" type="text" class="form-control" placeholder="Enter số điện thoại" name="soDienThoai">
+					</div>
+					<p th:errors="*{soDienThoai}" style="color:red;"></p>
+					
+					<div class="mb-3">
+						<label for="pwd" class="form-label">Bậc Lương:</label> 
+						<div th:field="*{bacLuong}">
+							 <input type="radio" id="1" name="bacLuong" value="1">
+							 <label for="1">1</label><br>
+							 <input type="radio" id="2" name="bacLuong" value="2">
+							 <label for="2">2</label><br>
+							 <input type="radio" id="3" name="bacLuong" value="3">
+							 <label for="3">3</label><br>
+							<input type="radio" id="4" name="bacLuong" value="4">
+							 <label for="4">4</label><br>
+							<input type="radio" id="5" name="bacLuong" value="5">
+							 <label for="5">5</label><br>
+							<input type="radio" id="6" name="bacLuong" value="6">
+							 <label for="6">6</label><br>
+							<input type="radio" id="7" name="bacLuong" value="7">
+							 <label for="7">7</label><br>
+							<input type="radio" id="8" name="bacLuong" value="8">
+							 <label for="8">8</label><br>
+							<input type="radio" id="9" name="bacLuong" value="9">
+							 <label for="9">9</label><br>
+						</div>
+					</div>
+					<!--  <p th:errors="*{bacLuong}" style="color:red;"></p>-->
+					
+					<div class="mb-3">
+						<label class="form-label">Department:</label> 
+						<select name="department.maPhong" class="form-control">
+							<option  th:each="d : ${departments}" th:value="${d.maPhong}" th:text="${d.tenPhong}"></option>
+						</select>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
