@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.api;
 
 import java.text.ParseException;
 import java.util.Arrays;
@@ -16,47 +16,45 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity_model.User;
 import com.example.demo.repository.UserRepo;
 import com.example.demo.service.MailService;
 
-@Controller
+//@Controller
+@RestController
+@RequestMapping("/api/user")
+public class UserAPI {
 
-@RequestMapping("/user")
-public class UserController {
-
-	private static Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static Logger logger = LoggerFactory.getLogger(UserAPI.class);
 
 	@Autowired
 	UserRepo userRepo;
 
-	@GetMapping("/create")
-	public String create(Model model) {
-
-		model.addAttribute("userrr", new User());
-		return "user/create";
-	}
-
+//	@GetMapping("/create")
+//	public String create(Model model) {
+//
+//		model.addAttribute("userrr", new User());
+//		return "user/create";
+//	}
+	
+	
 	@PostMapping("/create")
-	public String create(@ModelAttribute("userrr") @Valid User user,
-			BindingResult bindingResult) {
+	public User create(@RequestBody @Validated User user) {
 		
-		if(bindingResult.hasErrors()) {
-			return "user/create";
-		}
-		
-		
-		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+//		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		
 		userRepo.save(user);
 
-		return "redirect:/user/search";
+		return user;
 	}
 
 	@GetMapping("/update")

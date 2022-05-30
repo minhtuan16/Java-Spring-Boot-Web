@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html layout:decorator="home.html">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Create Category</title>
 </head>
 <body>
-
-	<div th:replace="common/header :: header"></div>
-	
-	<form th:action="@{/category/create}" method="post">
-		<br><label>ID:</label> 
-		<br><input type= "text" name="id">
-		
-		<br><label>Name:</label> 
-		<br><input type= "text" name="name">
-		
-		<br><button type="submit">Create</button>
-	</form>
-	
-	<a th:href="@{/category/search}">Search</a>
-	
-	<div th:replace="common/footer :: footer"></div>
+	<div layout:fragment="form-body" class="col-12 col-sm-9">
+		<div class="row">
+			<h6 th:text="#{category.create}"></h6>
+		</div>
+		<hr/>
+		<div class="row">
+			<form th:action="@{/category/create}" method="post">
+			
+				<div class="mb-3">
+					<label class="form-label">Name:</label> 
+					<input type="text" class="form-control" name="nameCate">
+				</div>
+				<!--  <p th:errors="*{name}" style="color: red;"></p>-->
+				
+				<div class="mb-3">
+					<button class="btn btn-primary" type="submit">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

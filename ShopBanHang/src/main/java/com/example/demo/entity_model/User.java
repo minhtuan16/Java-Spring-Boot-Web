@@ -1,11 +1,18 @@
 package com.example.demo.entity_model;
 
+import java.util.List;
+
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 
@@ -15,20 +22,26 @@ import lombok.Data;
 public class User {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name = "name")
+
+	@NotEmpty(message = "{user.name.notempty}")
 	private String name;
-	
-	@Column(name = "user_name", unique = true)
+
+	@Column(unique = true)
+	@NotEmpty(message = "{user.username.notempty}")
 	private String username;
-	
-	@Column(name = "pass_word")
+
+	@NotEmpty(message = "{user.password.notempty}")
 	private String password;
+
+//	@ElementCollection(fetch = FetchType.EAGER)
+//	@Column(name = "role")
+//	@CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+//	private List<String> roles;
 	
-	@Column(name = "role")
-	private String role;
+	@NotEmpty(message = "{user.roles.notempty}")
+	private String roles;
 	
-	
+	@NotEmpty(message = "{user.mailUser.notempty}")
+	private String mailUser;
 }
