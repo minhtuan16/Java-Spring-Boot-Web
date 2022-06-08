@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html layout:decorator="home.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Product</title>
+</head>
+<body>
+	<div layout:fragment="form-body" class="col-12 col-sm-9">
+		<div class="container mt-1">
+			<div class="row">
+				<h6>Create Product</h6>
+			</div>
+			<hr />
+			<div class="row">
+
+				<form enctype="multipart/form-data" th:object="${pro}" th:action="@{/product/create}" method="post">
+					<div class="mb-3">
+						<label for="pwd" class="form-label">Name:</label> 
+						<input type="text" class="form-control" placeholder="Enter tên sản phẩm" name="name">
+						<p th:errors="*{name}" style="color:red;"></p>
+					</div>
+					
+					<div class="mb-3">
+						<label for="pwd" class="form-label">Price:</label> 
+						<input type="number" class="form-control" placeholder="Enter giá" name="price">
+					</div>
+					
+					<div class="mb-3">
+						<label for="pwd" class="form-label">Description:</label> 
+						<input type="text" class="form-control" placeholder="Enter mô tả" name="descriptionProduct">
+						<p th:errors="*{descriptionProduct}" style="color:red;"></p>
+						<input type="file" name="file" accept="image/*" class="form-control">
+					</div>
+					
+					
+					<div class="mb-3">
+						<label class="form-label">Category:</label> 
+						<select name="category.id" class="form-control">
+							<option  th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+						</select>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Create</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

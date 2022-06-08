@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html layout:decorator="home.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Update Bill</title>
+</head>
+<body>
+	<div layout:fragment="form-body" class="col-12 col-sm-9">
+		<div class="row">
+			<h6>Update Bill</h6>
+		</div>
+		<hr/>
+		<div class="row">
+			<form th:action="@{/bill/update}" method="post">
+				<div class="mb-3">
+					<label class="form-label">ID:</label> 
+					<input readonly="readonly" th:value="${bill.id}" type="text" name="id" class="form-control" >
+				</div>
+								
+				<div class="mb-3">
+					<label class="form-label">User:</label> 
+					<select name="user.id" class="form-control">
+					<option th:each="u : ${users}" th:value="${u.id}" th:text="${u.name + ' - ' + u.username}" th:selected="${u.id == bill.user.id}"></option>
+					</select>
+				</div>
+				
+				<div class="mb-3">
+					<button class="btn btn-primary" type="submit">Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
