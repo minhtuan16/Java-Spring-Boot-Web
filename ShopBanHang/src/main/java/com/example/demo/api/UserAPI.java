@@ -2,8 +2,7 @@ package com.example.demo.api;
 
 import java.text.ParseException;
 import java.util.Arrays;
-
-import javax.validation.Valid;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity_model.User;
 import com.example.demo.repository.UserRepo;
-import com.example.demo.service.MailService;
 
 //@Controller
 @RestController
@@ -134,5 +129,17 @@ public class UserAPI {
 		return "user/search";
 
 	}
-
+	
+//	@GetMapping("/search")
+//	public String search(Model model, @RequestParam(name = "keyword", required = false) String s) {
+//
+//		if (s == null) {
+//			List<User> list = userRepo.findAll();
+//			model.addAttribute("userList", list);
+//		} else {
+//			List<User> list = userRepo.search("%" + s + "%");
+//			model.addAttribute("userList", list);
+//		}
+//		return "user/search";
+//	}
 }

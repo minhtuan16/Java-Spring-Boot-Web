@@ -51,7 +51,6 @@ public class UserController {
 			return "user/create";
 		}
 		
-		
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 		
 		userRepo.save(user);

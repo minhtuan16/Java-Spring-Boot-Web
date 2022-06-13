@@ -24,7 +24,7 @@ public class Bill {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-//	private String couponCode;
-//	
-//	private int discount;
+	private String couponCode;
+	
+	private int discount;
 }

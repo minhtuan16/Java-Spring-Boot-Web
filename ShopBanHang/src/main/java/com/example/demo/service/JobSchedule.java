@@ -24,15 +24,12 @@ public class JobSchedule {
 	
 	@Autowired
 	MailService mailService;
-//	
+	
 //	@Scheduled(fixedDelay = 5000)
 //	public void sendBill() {
-//		int size = bill_Repo.findAll().size();
-//		System.out.println("Hello " + size);
-//		
 //		List<Bill> bills = bill_Repo.searchBill(new Date());
-//		System.out.println("bills");
-		
+//		System.out.println(bills);
+//		
 //		List<Bill> bills1 = new ArrayList<Bill>();
 //		for(Bill b : bills) {
 //			if(new Date().getTime()-5*1000*60 <= b.getBuyDate().getTime() && b.getBuyDate().getTime() <= new Date().getTime()) {

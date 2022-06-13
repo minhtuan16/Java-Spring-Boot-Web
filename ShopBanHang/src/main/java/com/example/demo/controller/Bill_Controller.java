@@ -64,6 +64,10 @@ public class Bill_Controller {
 
 		bill.setBuyDate(new Date());
 		
+		if(bill.getCouponCode() != null && !bill.getCouponCode().isEmpty()) {
+			
+		}
+		
 		bill_Repo.save(bill);
 		
 //		Date date = new Date().getTime()-5*1000*60;

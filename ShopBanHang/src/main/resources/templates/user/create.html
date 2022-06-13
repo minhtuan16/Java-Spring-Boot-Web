@@ -42,25 +42,25 @@
 				<form enctype="multipart/form-data" th:action="@{/user/create}" method="post">
 					<div class="mb-3 mt-3">
 						<label for="ID" class="form-label">ID:</label> <input type="text"
-							class="form-control" placeholder="Enter id" name="id" required="required">
+							class="form-control" placeholder="Enter id" name="id" >
 					</div>
 					
 					<div class="mb-3">
 						<label for="pwd" class="form-label">Name:</label> 
 						<input  type="text" class="form-control" placeholder="Enter name" name="name">
-						<p th:errors="*{name}" style="color: red;"></p>	
+						<!--  <p th:errors="*{name}" style="color: red;"></p>	-->
 					</div>
 					
 					<div class="mb-3">
 						<label for="pwd" class="form-label">Username:</label> 
 						<input type="text" class="form-control" placeholder="Enter username" name="username">
-						<p th:errors="*{username}" style="color:red;"></p>
+						<!--  <p th:errors="*{username}" style="color:red;"></p>-->
 					</div>
 					
 					<div class="mb-3">
 						<label for="pwd" class="form-label">Password:</label> 
 						<input type="password" class="form-control" placeholder="Enter password" name="password">
-						<p th:errors="*{password}" style="color:red;"></p>
+						<!--  <p th:errors="*{password}" style="color:red;"></p>-->
 					</div>
 					
 					<div class="form-check mb-3">
@@ -77,13 +77,13 @@
 							 <input type="checkbox" id="ROLE_Member" name="roles" value="ROLE_Member">Member
 							 <input type="checkbox" id="ROLE_Khach_hang" name="roles" value="ROLE_Khach_hang">Khách hàng
 						</div>
-						<p th:errors="*{roles}" style="color:red;"></p>
+						<!--  <p th:errors="*{roles}" style="color:red;"></p>-->
 					</div>
 					
 					<div class="mb-3">
 						<label for="pwd" class="form-label">Email:</label> 
 						<input type="text" class="form-control" placeholder="example@gmail.com" name="mailUser">
-						<p th:errors="*{mailUser}" style="color:red;"></p>
+						<!--  <p th:errors="*{mailUser}" style="color:red;"></p>-->
 					</div>
 					
 					<button type="submit" class="btn btn-primary">Create</button>

@@ -7,18 +7,19 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
 @Entity
 @Table(name = "user")
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
 	@Id
@@ -38,10 +39,13 @@ public class User {
 //	@Column(name = "role")
 //	@CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
 //	private List<String> roles;
-	
-	@NotEmpty(message = "{user.roles.notempty}")
-	private String roles;
-	
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	@Column(name = "role")
+	@CollectionTable(name = "user_role",
+		joinColumns = @JoinColumn(name = "user_id"))
+	private List<String> roles;
+
 	@NotEmpty(message = "{user.mailUser.notempty}")
 	private String mailUser;
 }
