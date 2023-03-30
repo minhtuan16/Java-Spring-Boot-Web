@@ -1,0 +1,15 @@
+<div class="w3-bar w3-black" th:fragment="header-section">
+
+	<a th:href="@{/book/search}" class="w3-bar-item w3-button" style="margin-left: 50px;">Home</a>
+
+	<a th:href="@{/category/search}" class="w3-bar-item w3-button">Category</a>
+	<a th:href="@{/book/search}" class="w3-bar-item w3-button">Book</a> 
+	<a th:href="@{/admin/users/search}" class="w3-bar-item w3-button">User</a>
+
+	<form th:action="@{/logout}" method="post"
+		style="float: right; margin-right: 50px;">
+		<button type="submit">
+			<a class="w3-right w3-button w3-deep-orange">Logout</a>
+		</button>
+	</form>
+</div>

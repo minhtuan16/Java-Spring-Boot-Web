@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html layout:decorator="home.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- tu dong format tren man hinh khac nhau -->
+
+<title>Search Book</title>
+<link th:href="@{/css/style.css}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	 <div layout:fragment="form-body" class="col-12 col-sm-10 col-md-10">
+		<div class="row">
+			<form th:action="@{/book/search}" method="get">
+				<div class="row">
+					<div class="col-12 col-md-2">
+						<input th:value="${name}" type="text" class="form-control" name="name"
+							placeholder="Tìm kiếm theo tiêu đề...">
+					</div>
+					
+					<div class="col-12 col-md-2" >
+		              <div class="row">
+		                <label class="col">Category:</label>
+		                <select name="categoryID" class="form-select col" >
+		                  <option value="">Chọn</option>
+		                  <option
+		                    th:each="c : ${categories}"
+		                    th:value="${c.id}"
+		                    th:text="${c.name}"
+		                    th:selected="${c.id == categoryID}"
+		                  ></option>
+		                </select>
+		              </div>
+		            </div>
+					<div class="col-12 col-md-2">
+						<button type="submit" class="btn btn-primary" style="margin-left: 100px;">Search</button>
+					</div>
+					<div class="col-12 col-md-6">
+						<a th:href="@{/book/create}" class="btn w3-deep-orange"  style="float: right;">Add</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<br/>
+		
+		
+		<div class="row w3-responsive">
+			<table class="table table-bordered w3-hoverable">
+				<thead>
+					<tr>
+						<!-- <th>ID</th> -->
+						<th class="w3-center">Hình ảnh</th>
+						<th class="w3-center">Tiêu đề</th>
+						<th class="w3-center">Giá bán</th>
+						<th class="w3-center">Tác giả</th>
+						<th class="w3-center">Category (Thể loại)</th>
+						<th class="w3-center">Mô tả</th>
+						<th class="w3-center">Ngày phát hành (yyyy-MM-dd)</th>
+						<th class="w3-center">Số trang</th>
+						<th class="w3-center">Tùy chọn</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="b : ${list}">
+						<!-- <td th:text="${book.id}"></td> -->
+						<td class="w3-center" style="justify-content: center; width: 20%;">
+							<img style="height: 30%; width: 30%"
+                  				th:src="@{'/book/download?imageURL=' + ${b.imageURL}}"/>
+						</td>
+						<td class="w3-center" th:text="${b.title}"></td>
+						<td class="w3-center" th:text="${b.bprice} + đ"></td>
+						<td class="w3-center" th:text="${b.author}"></td>
+						<td class="w3-center" th:text="${b.category.name}"></td>
+						<td class="w3-center" th:text="${b.desBook}"></td>
+						<td class="w3-center" th:text="${#dates.format(b.releaseDay, 'yyyy-MM-dd')}"></td>
+						<td class="w3-center" th:text="${b.pageNumber}"></td>
+						<td class="w3-center">
+							<a class="btn w3-red" th:data-id="${b.id}" th:data-name="${b.title}" onclick="showConfirm(this.getAttribute('data-id'), this.getAttribute('data-name'))">Delete</a>
+							<!-- <a class="text-info" th:href="@{'/book/update?id=' + ${book.id}}">Update</a> -->
+							<a class="btn w3-blue" th:href="@{'/book/view?id=' + ${b.id}}">View</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<script type="text/javascript">
+	  	function showConfirm(id, name) {
+	  		$('#bookTitle').text(name);
+	  		$('#yesOption').attr('href', '/book/delete?id=' + id);
+	  		$('#confirmId').modal('show');
+	  	}
+	  </script>
+	  
+	   <!-- Modal -->
+	  <div class="modal" id="confirmId">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		
+		      <!-- Modal Header -->
+		      <div class="modal-header">
+		        <h4 class="modal-title">Xác nhận</h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        <p>Bạn có chắc muốn xóa " <span id="bookTitle"></span> " ?</p>
+		      </div>
+		
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		      	<a id="yesOption" type="button" class="btn btn-danger">Yes</a>
+		        <button type="button" class="btn w3-blue-gray" data-bs-dismiss="modal">No</button>
+		      </div>
+		
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="row undertable" style="float: right;">
+			<div class="row">
+				<ul class="pagination">
+					
+					<li th:if="${totalPage > 0}" class="page-item">
+						<a class="page-link" th:href="@{'/book/search?page='+ ${page - 1 < 0 ? 0 : (page - 1)} + '&id=' + ${id} + '&name=' + ${name}}">Previous</a>
+					</li>
+	
+					<li th:if="${totalPage > 0}" th:each="i: ${#numbers.sequence(0, totalPage - 1)}" class="page-item">
+						<a class="page-link" th:href="@{'/book/search?page='+ ${i} + '&id=' + ${id} + '&name=' + ${name}}" th:text="${i}"></a>
+					</li>
+	
+					<li th:if="${totalPage > 0}" class="page-item">
+						<a class="page-link" th:href="@{'/book/search?page='+ ${page + 1 >= totalPage ? (totalPage - 1) : (page + 1) } + '&id=' + ${id} + '&name=' + ${name}}">Next</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

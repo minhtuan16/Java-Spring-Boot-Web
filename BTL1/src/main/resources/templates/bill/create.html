@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Bill</title>
+</head>
+<body>
+	<div class="" style="margin-left: 20px;">
+		<div class="container mt-1">
+			<div class="row">
+				<h6>Create Bill</h6>
+			</div>
+			<hr />
+			<div class="row">
+
+				<form th:action="@{/bill/create}" method="post">
+					
+					
+					<div class="mb-3">
+						<label class="form-label">Name:</label>
+						<input class="form-control" type="text" name="buyer" required="required">
+					</div>
+					
+					<div class="mb-3">
+						<label class="form-label">Phone:</label>
+						<input class="form-control" type="text" name="phone" required="required">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Address:</label>
+						<input class="form-control" type="text" name="address" required="required">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Note:</label>
+						<input class="form-control" type="text" name="note" required="required">
+					</div>
+					
+					<div class="mb-3">
+						<label class="form-label">TotalPrice:</label>
+						<input class="form-control" type="text" name="totalPrice" required="required">
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Create</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

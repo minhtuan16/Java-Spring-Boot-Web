@@ -1,0 +1,16 @@
+
+
+<div th:fragment="menu-body" class="col-12 col-sm-2 col-md-2">
+	
+			<a class="w3-bar-item w3-button w3-blue list-group-item list-group-item-action list-group-item-light" th:href="@{/category/search}">Category</a>
+		
+			<a class="w3-bar-item w3-button w3-blue list-group-item list-group-item-action list-group-item-light" th:href="@{/book/search}">Book</a>
+		
+			<a class="w3-bar-item w3-button w3-blue list-group-item list-group-item-action list-group-item-light" th:href="@{/admin/user/search}">User</a>
+	
+		<form th:action="@{/logout}" method="post" style="margin-top: 10px;">
+			<button type="submit">
+				<a class=" w3-button w3-deep-orange">Logout</a>
+			</button>
+		</form>
+</div>

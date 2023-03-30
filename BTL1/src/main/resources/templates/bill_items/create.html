@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create BillItems</title>
+</head>
+<body>
+	<div class="col-12 col-sm-9">
+		<div class="container mt-1">
+			<div class="row">
+				<h6>Create BillItems</h6>
+			</div>
+			<hr />
+			<div class="row">
+
+				<form th:action="@{/bill_items/create}" method="post">
+					
+					
+					<div class="mb-3 mt-3">
+						<label for="ID" class="form-label">BuyPrice:</label> 
+						<input type="number" class="form-control" placeholder="Enter BuyPrice" name="buyPrice">
+					</div>
+					
+					<div class="mb-3">
+						<label class="form-label">Bill:</label> 
+						<select name="bill.id" class="form-control">
+							<option  th:each="b : ${bills}" th:value="${b.id}" th:text="${b.id}"></option>
+						</select>
+					</div>
+					
+					<div class="mb-3">
+						<label class="form-label">Book:</label> 
+						<select name="product.id" class="form-control">
+							<option th:each="p : ${products}" th:value="${p.id}" th:text="${p.name}"></option>
+						</select>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Create</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

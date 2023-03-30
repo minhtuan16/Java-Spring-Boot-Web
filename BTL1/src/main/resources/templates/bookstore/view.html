@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html layout:decorator="client/template">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="INDEX,FOLLOW" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Minh Tuân | Sản phẩm</title>
+	
+  	 <style>
+      .ins-preview-wrapper-1755 .ins-top-search-wrap-element {
+        line-height: normal !important;
+        width: auto;
+        display: inline-block !important;
+      }
+      
+      .ins-preview-wrapper-1755 .ins-top-search-header {
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .ins-preview-wrapper-1755 .ins-top-search-header a {
+        color: inherit !important;
+      }
+      .ins-preview-wrapper-1755 .ins-top-search-menu-list {
+        white-space: nowrap;
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-flow: wrap;
+      }
+      .ins-preview-wrapper-1755
+        .ins-top-search-menu-list
+        li.ins-top-search-text {
+        white-space: nowrap;
+        margin-bottom: 2px;
+      }
+      .ins-preview-wrapper-1755 .ins-top-search-text .ins-element-content {
+        padding: 3px 18px 3px 18px;
+        background-color: #6a2768;
+        border-radius: 20px !important;
+        margin-right: 10px;
+        font-size: 15px;
+        color: #ffffff !important;
+      }
+      .ins-preview-wrapper-1755 .ins-top-search-text .ins-element-content a {
+        color: inherit;
+        font-size: inherit;
+        position: relative !important;
+        background-color: transparent !important;
+        line-height: 18px !important;
+      }
+      .form-item-select {
+        margin-right: -30px;
+      }
+      .sorter-options:hover {
+        cursor: pointer;
+      }
+      
+      
+  	 	
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #111;
+            line-height: 1.15;
+        }
+        #wrapper {
+            margin-top: 50px;
+        }
+        .flex-container {
+        	display: flex;
+        	flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        ul.products {
+            list-style: none;
+        }
+        ul.products li {
+            flex-basis: 25%;
+            box-sizing: border-box;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-bottom: 30px;
+        }
+        ul.products li img {
+            max-width: 100%;
+            height: auto;
+        }
+        ul.products li .product-top {
+            position: relative;
+            overflow: hidden;
+        }
+        ul.products li .product-top .product-thumb {
+            display: block;
+        }
+        ul.products li:hover .product-top .product-thumb img{
+            filter: opacity(80%);
+        }
+        ul.products li .product-top .product-thumb img {
+            display: block;
+        }
+        ul.products li .product-top a.buy-now {
+            background-color: #446082;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            padding: 10px 0px;
+            position: absolute;
+            width: 100%;
+            bottom: -36px;
+            transition: 0.25s ease-in-out;
+            opacity: 0.8;
+        }
+        ul.products li:hover a.buy-now {
+            bottom: 0px;
+        }
+        ul.products li .product-info {
+            padding: 10px 0px;
+        }
+        ul.products li .product-info a {
+            display: block;
+            text-decoration: none;
+        }
+        ul.products li .product-info a.product-cate {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #9e9e9e;
+            padding: 3px 0px;
+        }
+        ul.products li .product-info a.product-name {
+            color: #334862;
+            padding: 3px 0px;
+			text-align: center;
+        }
+        ul.products li .product-info .product-price {
+            color: #111;
+            padding: 2px 0px;
+            font-weight: 700;
+            text-align: center;
+        }
+    </style>
+ </head>
+ <body layout:fragment="form-body" data-container="body"
+    id="html-body"
+    class="page-with-filter page-products categorypath-thoi-trang-nam-ao-nam-ao-polo-nam category-ao-polo-nam catalog-category-view page-layout-highlight-product fullwidth wide">
+      <main>
+      <div class="page-wrapper lazy-loading-img" data-ratioimage="ratio-3">
+      	<section id="maincontent" class="page-main container">
+          <a id="contentarea" tabindex="-1"></a>
+          <div class="row">
+            <div class="column main col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <input name="form_key" type="hidden" value="grKKFDhMVI4o9ue8" />
+              <div
+                id="authenticationPopup"
+                data-bind="scope:'authenticationPopup', style: {display: 'none'}"
+                style="display: none"
+              >
+              </div>
+
+              <div class="category-product-actions">
+                <div class="breadcrumbs">
+                  <div class="container-fluid">
+                    <ul class="items">
+                      <li class="item home">
+                        <a href="https://routine.vn/" title="Đi đến trang chủ">
+                          Trang chủ
+                        </a>
+                      </li>
+                      <li class="item category15">
+                        <a
+                          href="https://routine.vn/thoi-trang-nam.html"
+                          title=""
+                        >
+                          THỜI TRANG NAM
+                        </a>
+                      </li>
+                      <li class="item category34">
+                        <a
+                          href="https://routine.vn/thoi-trang-nam/ao-nam.html"
+                          title=""
+                        >
+                          Áo Nam
+                        </a>
+                      </li>
+                      <li class="item category37">
+                        <strong>Áo Polo Nam</strong>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="toolbar toolbar-products">
+                  <div class="toolbar-sorter sorter">
+                    <div class="form-item-select">
+                      <select
+                        id="sorter"
+                        data-role="sorter"
+                        class="sorter-options"
+                      >
+                        <option value="" disabled="" selected="" hidden="">
+                          SẮP XẾP THEO
+                        </option>
+                        <option value="name_asc">Thứ tự chữ cái A-Z</option>
+                        <option value="name_desc">Thứ tự chữ cái Z-A</option>
+                        <option value="price_asc">Giá tăng dần</option>
+                        <option value="price_desc">Giá giảm dần</option>
+                        <option value="created_at_desc">
+                          Sản phẩm mới nhất
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="products wrapper grid products-grid"
+                id="product-wrapper"
+                style="margin-left: 20px; margin-top: -10px;"
+              >
+                <div
+                  classname="ins-preview-wrapper ins-preview-wrapper-1755"
+                  class="ins-preview-wrapper ins-preview-wrapper-1755"
+                  style="
+                    display: block;
+                    visibility: visible;
+                    position: relative;
+                  "
+                >
+                  <div
+                    classname="ins-content-wrapper ins-content-wrapper-1755"
+                    class="ins-content-wrapper ins-content-wrapper-1755"
+                  >
+                    <div
+                      classname="ins-notification-content ins-notification-content-1755"
+                      class="ins-notification-content ins-notification-content-1755 inline-resolution sandra"
+                      style="
+                        background-color: rgba(0, 0, 0, 0) !important;
+                        background-image: none !important;
+                        background-size: 100% 100% !important;
+                        border-width: 0px !important;
+                        border-style: none !important;
+                        border-color: rgb(35, 31, 32) !important;
+                        border-radius: 0px !important;
+                        opacity: 1 !important;
+                        box-shadow: none !important;
+                        position: relative;
+                        display: inline-block;
+                      "
+                    >
+                      <div
+                        class="ins-sortable-container ins-top-search-content-wrapper"
+                      >
+                        <div class="ins-top-search-content-wrapper-inner">
+                          <div
+                            id="wrap-text-1454703513223"
+                            class="adaptive-title ins-selectable-element ins-element-wrap ins-element-text ins-top-search-wrap-element ins-adaptive-title"
+                          >
+                            <div
+                              id="text-1454703513223"
+                              class="ins-element-content editable-text no-resizable ins-top-search-header"
+                              data-click-tracker="true"
+                              data-background-color-changed="true"
+                              style="font-size: 18px !important"
+                            >
+                              <a
+                                href="https://routine.vn/thoi-trang-nam/ao-nam/ao-thun-nam-2.html"
+                                class="ins-element-link"
+                              >
+                                <div
+                                  class="editable ins-element-editable"
+                                  id="editable-text-1454703513223"
+                                  data-bind-menu="notification|text_editing"
+                                >
+                                  ÁO POLO NAM
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                          <div
+                            id="countdown-text-1531840524000"
+                            class="ins-selectable-element ins-element-wrap ins-element-question ins-top-search-wrap-element"
+                          >
+                            <ul
+                              id="countdown-elements-1505891501823"
+                              class="ins-element-content ins-flex-centered-container ins-top-search-menu-list ins-add-element-area"
+                              data-override-name="true"
+                              data-element-name="Top Search Elements"
+                              data-question-type="checkboxes"
+                              data-required-question="true"
+                              data-product-name="SHOPPING_TRIGGER"
+                            >
+                              <li
+                                id="wrap-text-1655477334681"
+                                class="adaptive-description ins-selectable-element ins-element-wrap ins-element-text ins-top-search-text ins-sample-element-wrapper"
+                              >
+                                <div
+                                  id="text-1655477334681"
+                                  class="ins-element-content editable-text no-resizable ins-top-search-inner-text ins-sample-element-children"
+                                  data-apply-to-all="keyword"
+                                  data-removable="true"
+                                  data-background-color-changed="true"
+                                  style="
+                                    background-color: rgb(6, 0, 110) !important;
+                                    font-weight: 700 !important;
+                                    font-size: 18px !important;
+                                  "
+                                >
+                                  <a
+                                    href="https://routine.vn/thoi-trang-nam/ao-nam/ao-polo-nam.html?pattern=1249"
+                                    class="ins-element-link"
+                                  >
+                                    <div
+                                      class="editable ins-element-editable ins-sample-element-children"
+                                      id="editable-text-1655477334681"
+                                      data-bind-menu="notification|text_editing"
+                                    >
+                                      TRƠN
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                              <li
+                                id="wrap-text-1655477414094"
+                                class="adaptive-description ins-selectable-element ins-element-wrap ins-element-text ins-top-search-text ins-sample-element-wrapper"
+                              >
+                                <div
+                                  id="text-1655477414094"
+                                  class="ins-element-content editable-text no-resizable ins-top-search-inner-text ins-sample-element-children"
+                                  data-apply-to-all="keyword"
+                                  data-removable="true"
+                                  data-background-color-changed="true"
+                                  style="
+                                    font-weight: 700 !important;
+                                    font-size: 18px !important;
+                                    background-color: rgb(6, 0, 110) !important;
+                                  "
+                                >
+                                  <a
+                                    href="https://routine.vn/thoi-trang-nam/ao-nam/ao-polo-nam.html?pattern=1332"
+                                    class="ins-element-link"
+                                  >
+                                    <div
+                                      class="editable ins-element-editable ins-sample-element-children"
+                                      id="editable-text-1655477414094"
+                                      data-bind-menu="notification|text_editing"
+                                    >
+                                      THÊU
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+
+                              <li
+                                id="wrap-text-1659949205387"
+                                class="adaptive-description ins-selectable-element ins-element-wrap ins-element-text ins-top-search-text ins-sample-element-wrapper"
+                              >
+                                <div
+                                  id="text-1659949205387"
+                                  class="ins-element-content editable-text no-resizable ins-top-search-inner-text ins-sample-element-children"
+                                  data-apply-to-all="keyword"
+                                  data-removable="true"
+                                  data-background-color-changed="true"
+                                  style="
+                                    background-color: rgb(6, 0, 110) !important;
+                                    font-weight: 700 !important;
+                                    font-size: 18px !important;
+                                  "
+                                >
+                                  <a
+                                    href="https://routine.vn/thoi-trang-nam/ao-nam/ao-polo-nam.html?pattern=1246"
+                                    class="ins-element-link"
+                                  >
+                                    <div
+                                      class="editable ins-element-editable ins-sample-element-children"
+                                      id="editable-text-1659949205387"
+                                      data-bind-menu="notification|text_editing"
+                                    >
+                                      PHỐI MÀU
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                              <li
+                                id="wrap-text-1659949206008"
+                                class="adaptive-description ins-selectable-element ins-element-wrap ins-element-text ins-top-search-text ins-sample-element-wrapper"
+                              >
+                                <div
+                                  id="text-1659949206008"
+                                  class="ins-element-content editable-text no-resizable ins-top-search-inner-text ins-sample-element-children"
+                                  data-apply-to-all="keyword"
+                                  data-removable="true"
+                                  data-background-color-changed="true"
+                                  style="
+                                    background-color: rgb(6, 0, 110) !important;
+                                    font-size: 18px !important;
+                                    font-weight: 700 !important;
+                                  "
+                                >
+                                  <a
+                                    href="https://routine.vn/thoi-trang-nam/ao-nam/ao-polo-nam.html?pattern=1381"
+                                    class="ins-element-link"
+                                  >
+                                    <div
+                                      class="editable ins-element-editable ins-sample-element-children"
+                                      id="editable-text-1659949206008"
+                                      data-bind-menu="notification|text_editing"
+                                    >
+                                      KẺ SỌC
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                              <li
+                                id="wrap-text-1659949206775"
+                                class="adaptive-description ins-selectable-element ins-element-wrap ins-element-text ins-top-search-text ins-sample-element-wrapper"
+                              >
+                                <div
+                                  id="text-1659949206775"
+                                  class="ins-element-content editable-text no-resizable ins-top-search-inner-text ins-sample-element-children"
+                                  data-apply-to-all="keyword"
+                                  data-removable="true"
+                                  data-background-color-changed="true"
+                                  style="
+                                    background-color: rgb(6, 0, 110) !important;
+                                    font-size: 18px !important;
+                                    font-weight: 700 !important;
+                                  "
+                                >
+                                  <a
+                                    href="https://routine.vn/thoi-trang-nam/ao-nam/ao-polo-nam.html?pattern=1244"
+                                    class="ins-element-link"
+                                  >
+                                    <div
+                                      class="editable ins-element-editable ins-sample-element-children"
+                                      id="editable-text-1659949206775"
+                                      data-bind-menu="notification|text_editing"
+                                    >
+                                      HỌA TIẾT
+                                    </div>
+                                  </a>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- top -->
+              <div class="bottom-pagination">
+                <div class="toolbar toolbar-products">
+                  <div id="wrapper" class="flex-container">
+					  <ul class="products" th:each="pro : ${list}">
+					    <li>
+					      <div class="product-item">
+					        <div class="product-top">
+					          <a href="" class="pro-thumb">
+					            <img
+					              th:src="@{'/admin/product/download?imageURL=' + ${pro.imageURL}}"
+					              class="img-responsive"
+					            />
+					          </a>
+					          <a  class="buy-now">Mua ngay</a>
+					        </div>
+					        <div class="product-info">
+					          <a href="" class="product-name" th:text="${pro.name}" th:href="@{'/product?id='+${pro.id}}"></a>
+					          <div class="product-price" th:text="${pro.price}"></div>
+					        </div>
+					      </div>
+					    </li>
+					  </ul>
+					</div>
+
+                <!--   <div class="pages list-inline">
+                    <ul class="pagination" aria-labelledby="paging-label">
+                      <li th:if="${totalPage > 0}" class="item current">
+                        <a th:href="@{'/polo-nam?page='+ ${page - 1 < 0 ? 0 : (page - 1)} + '&id=' + ${id} + '&name=' + ${name} + '&categoryId=' + ${categoryId}}" class="page">
+                          <span><i class="fa-solid fa-arrow-left-long"></i></span>
+                        </a>
+                      </li>
+                      <li th:if="${totalPage > 0}" th:each="i: ${#numbers.sequence(0, totalPage - 1)}" class="item">
+                        <a
+                          th:href="@{'/polo-nam?page='+ ${i} + '&id=' + ${id} + '&name=' + ${name} + '&categoryId=' + ${categoryId}}"
+                          class="page"
+                        >
+                          <span th:text="${i}"></span>
+                        </a>
+                      </li>
+
+                      <li th:if="${totalPage > 0}" class="item pages-item-next">
+                        <a
+                          th:href="@{'/polo-nam?page='+ ${page + 1 >= totalPage ? (totalPage - 1) : (page + 1) } + '&id=' + ${id} + '&name=' + ${name} + '&categoryId=' + ${categoryId}}"
+                          title="Tiếp theo"
+                        >
+                          <span><i class="fa-solid fa-arrow-right-long"></i></span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </div>
+    </main>
+  </body>
+</html>

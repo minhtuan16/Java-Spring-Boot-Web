@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+    
+  <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>MinhTuan</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			.account-page{
+			    padding: 50px 0;
+			    background: radial-gradient(#fff, #ffd6d6);
+			}
+			.form-container{
+			    background: #fff;
+			    width:300px;
+			    height: 400px;
+			    position: relative;
+			    text-align: center;
+			    padding: 20px 0;
+			    margin: auto;
+			    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+			    overflow: hidden;
+			}
+			
+			.form-container span{
+			    font-weight: bold;
+			    padding: 0 10px;
+			    color: #555;
+			    cursor: pointer;
+			    width: 100px;
+			    display: inline-block;
+			}
+			
+			.form-btn{
+			    display:inline-block;
+			}
+			.form-container form{
+			    max-width: 300px;
+			    padding: 0 20px;
+			    position: absolute;
+			    top: 130px;
+			    transition: transform 1s;
+			}
+			
+			form input{
+			    width: 100%;
+			    height: 30px;
+			    margin: 10px 0;
+			    padding: 0 10px;
+			    border: 1px solid #ccc;
+			}
+			
+			form .btn{
+			    width: 100%;
+			    border:none;
+			    cursor:pointer;
+			    margin:10px 0;
+			}
+			form .btn:focus{
+			    outline: none;
+			}
+			
+			#LoginForm{
+			    left: -300px;
+			}
+			#RegForm{
+			    left: 0;
+			}
+			form a{
+			    font-size: 12px;
+			}
+			
+			#Indicator{
+			    width: 100px;
+			    border: none;
+			    background: #ff523b;
+			    height: 3px;
+			    margin-top: 8px;
+			    transform: translateX(100px);
+			    transition: transform 1s;
+			
+			}
+			
+		</style>
+    </head>
+    <body>
+        <!--<div class ="header">-->
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" width="125px"></a>
+                </div>
+                 <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li>
+                         <li><a href="products.html">Products</a></li>
+                         <li><a href="">About</a></li>
+                         <li><a href="">Contact</a></li>
+                         <li><a href="account.html">Account</a></li>
+
+                    </ul>
+                </nav>
+                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+                <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
+            </div>
+           
+        </div>
+    <!--</div>-->
+    
+        
+        <!------------------------------ account-page details------------------------------>
+
+        <div class="account-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="images/image1.png" width="100%">
+                    </div>
+                    <div class="col-2">
+                        <div class="form-container">
+                            <div class="form-btn">
+                                <span onclick="login()">Login</span>
+                                <span onclick="register()">Register</span>
+                                <hr id="Indicator">
+                            </div>
+                            
+                            <form th: id="LoginForm">
+                                <input type="text" placeholder="username">
+                                <input type="password" placeholder="password">
+                                <button type="submit" class="btn">Login</button>
+                                <a href="">Forgot password</a>
+                            </form>
+                            
+                            <form th:action="@{/admin/user/create}" method="post" id="RegForm">
+                            	<!--<input type="text" placeholder="id" name="id" required="required">-->
+                                <input type="email" placeholder="email" name="mailUser" required="required">
+                                <input type="text" placeholder="username" name="username" required="required">
+                                <input type="password" placeholder="password" name="password" required="required">
+								  
+								  <div id="checked">
+								  	<input type="radio" id="ROLE_Client" name="roles"
+										value="ROLE_Client" style="width: 16px; height: 16px;" checked="checked">
+									<label for="ROLE_Client" class="client" style="font-size: 16px;">Client</label>
+									<input type="radio" id="ROLE_Member" name="roles"
+										value="ROLE_Member" style="width: 16px; height: 16px;" disable>
+									<label for="ROLE_Member" class="member" style="font-size: 16px;">Member</label>
+									<input type="radio" id="ROLE_Admin" name="roles"
+										value="ROLE_Admin" style="width: 16px; height: 16px;">
+									<label for="ROLE_Admin" class="admin" style="font-size: 16px;">Admin</label>
+								</div>
+                                <button type="submit" class="btn">Register</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+        
+       
+        <!----------------------------------footer------------------------------------->
+        <div class ="footer">
+        <div class="container">
+            
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/play-store.png" alt="">
+                        <img src="images/app-store.png" alt="">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-white.png">
+                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                   <ul>
+                       <li>Coupons</li>
+                       <li>Blog Post</li>
+                       <li>Return Policy</li>
+                       <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow us</h3>
+                   <ul>
+                       <li>Facebook</li>
+                       <li>Twitter</li>
+                       <li>Instagram</li>
+                       <li>Youtube</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <hr><!--horizontal line-->
+            <p class="copyright">Copyright 2021 - Apurba Kr. Pramanik</p>
+            
+        </div>
+    </div>
+        
+        
+        <!-----------------------------------js for toggle menu-------------------------------------->
+        <script>
+            var menuItems=document.getElementById("MenuItems");
+            
+            MenuItems.style.maxHeight="0px";
+            function menutoggle(){
+                if(MenuItems.style.maxHeight == "0px"){
+                    MenuItems.style.maxHeight="200px";
+                }
+                else{
+                    MenuItems.style.maxHeight="0px";
+                }
+            }
+        </script>
+        
+                <!-----------------------------------js for toggle form-------------------------------------->
+       <script>
+            var LoginForm=document.getElementById("LoginForm");
+            var RegForm=document.getElementById("RegForm");
+            var Indicator=document.getElementById("Indicator");
+            
+            function register(){
+                RegForm.style.transform="translateX(0px)";
+                LoginForm.style.transform="translateX(0px)";
+                Indicator.style.transform="translateX(100px)"
+            }
+            function login(){
+                RegForm.style.transform="translateX(300px)";
+                LoginForm.style.transform="translateX(300px)";
+                Indicator.style.transform="translateX(0px)";
+            }
+        </script>
+
+    </body>
+</html>

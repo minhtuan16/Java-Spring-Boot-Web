@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Arthur Ataide, Jose Marmolejos and Philip Deleon">
+    <link rel="icon" href="../media/favicon.png">
+
+    <title>Clothe Store - User Profile</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Firebase -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+
+    <!-- Custom styles for this template-->
+    <link href="../css/menu.min.css" rel="stylesheet">
+    <link href="../css/menu.css" rel="stylesheet">
+    <link href="../css/user.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand bg-primary topbar mb-4 fixed-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none text-light rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <div class="flex-grow-0">
+                        <a class="navbar-brand nav-top" href="../index.html">Clothe <b>Store</b></a>
+                    </div>
+
+                    <form class="flex-grow-1 d-flex d-sm-inline-block form-inline mx-lg-auto ml-auto p-5 navbar-search " >
+                        <div class="input-group" hidden>
+                            <input type="text" class="form-control bg-light border-0 small search-input" placeholder="What are you searching for ?" aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append ">
+                                <button class="btn btn-primary search-input" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto navbar-right">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle nav-top" href="# " id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-shopping-bag icon-size"></i>
+                                <!-- Counter - Messages -->
+                                <span id="cartItems" class="badge badge-danger badge-counter"></span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div  class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">Your Shopping cart</h6>
+                                <div id="shoppingCart">
+                                <!-- <div class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-sm"
+                                            src="https://ae01.alicdn.com/kf/HTB1s4b2aULrK1Rjy0Fjq6zYXFXam/Autumn-Men-Pants-Hip-Hop-Harem-Joggers-Pants-2020-New-Male-Trousers-Mens-Joggers-Solid-Multi.jpg "
+                                            alt=" ">
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">
+                                            Autumn Men Pants Hip Hop Harem Joggers Pants 2020 New
+                                            Male Trousers Mens Joggers Solid Multi-pocket Pants
+                                            Sweatpants M-4XL
+                                        </div>
+                                        <div class="medium">
+                                            <b>$25.99</b>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                </div>
+                                <div class="dropdown-item d-flex align-items-center" href="# ">
+                                    <div class="text-primary align-content-lg-start">
+                                        <b>SubTotal:</b>
+                                    </div>
+                                    <div class="align-right medium text-dark" id="cart-subtotal">
+                                        <b id="totalCart"></b>
+                                    </div>
+                                </div>
+                                <a class="dropdown-item text-center large bg-checkout-warning text-uppercase" href="#">
+                                    <b>Go to Cart</b>
+                                </a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="userName" class="mr-2 d-none d-lg-inline text-gray-100 small"></span>
+                                <img class="img-profile rounded-circle" src="../media/undraw_profile_2.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <div id="userLoggedIn" hidden>
+                                    <a class="dropdown-item" href="user-account.html">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+                                    <a class="dropdown-item" href="orders.html">
+                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        My Orders
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="# " data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                                <div id="userNotLoggedIn" hidden>
+                                    <a class="dropdown-item" href="./pages/login.html">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Sign In
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-50">
+                            <div class="container-cart bg-lightgrey shadow-sm ">
+                                <div class="text-center m-top m-bottom">
+                                    <h4>User Profile</h4>
+                                </div>
+                                <hr class="solid ">
+                                <div class="form-group d-flex cont">
+                                    <div class="label-user" >
+                                        First Name:
+                                    </div>
+                                    <div class="cont">
+                                        <input id="firstName" class="form-control form-input" type="text" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex cont ">
+                                    <div class="label-user">
+                                        Last Name:
+                                    </div>
+                                    <div class="cont">
+                                        <input id="lastName" class="form-control form-input" type="text" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex cont">
+                                    <div class="label-user">
+                                        Email:
+                                    </div>
+                                    <div class="cont">
+                                        <input id="email" class="form-control form-input" type="email" disabled>
+                                    </div>
+                                </div>
+                                <div class="text-center m-top m-bottom">
+                                    <h4>Shipping Address</h4>
+                                </div>
+                                <hr>
+                                <div class="form-group d-flex cont">
+                                    <div class="label-user">
+                                        Address:
+                                    </div>
+                                    <div class="cont">
+                                        <input id="address" class="form-control form-input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex cont ">
+                                    <div class="label-user">
+                                        Prov/State:
+                                    </div>
+                                    <div class="cont">
+                                        <input id="state" class="form-control form-input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex cont">
+                                    <div class="label-user">
+                                        Country:
+                                    </div>
+                                    <div class="cont">
+                                        <input id="country" class="form-control form-input" type="email">
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex cont">
+                                    <div class="label-user"">
+                                        Postal Code:
+                                    </div>
+                                    <div class="cont">
+                                        <input id="zip" class="form-control form-input" type="email">
+                                    </div>
+                                </div>
+                                <hr>
+                                <a class="btn btn-primary btn-lg form-btn btn-block m-bottom m-top" href="#" onclick="edit()"" data-toggle="modal" data-target="#editModal"">Save</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer id="footer " class="sticky-footer bg-primary ">
+                <div class="container ">
+                    <div class="copyright text-center my-auto text-light ">
+                        <span>Copyright &copy; Team South 2021 </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded " href="#page-top ">
+        <i class="fas fa-angle-up "></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1 " role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true ">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="exampleModalLabel ">Are you ready to Leave?</h5>
+                    <button class="close " type="button " data-dismiss="modal " aria-label="Close ">
+                        <span aria-hidden="true ">×</span>
+                    </button>
+                </div>
+                <div class="modal-body ">Select "Logout " below if you are ready to end your current session.</div>
+                <div class="modal-footer ">
+                    <button class="btn btn-secondary " type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary " href="../index.html" onclick="signOut(true)">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal-->
+    <div class="modal fade" id="editModal" tabindex="-1 " role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true ">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="exampleModalLabel ">Confirm changes</h5>
+                    <button class="close " type="button " data-dismiss="modal " aria-label="Close ">
+                        <span aria-hidden="true ">×</span>
+                    </button>
+                </div>
+                <div class="modal-body ">Do you want to confirm your changes?</div>
+                <div class="modal-footer ">
+                    <button class="btn btn-secondary " type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary " href="" onclick="save()">Yes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js "></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js "></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/menu.min.js "></script>
+
+    <script src="../js/firebase.js"></script>
+    <script src="../js/user-profile.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        checkAuth();
+    </script>
+
+</body>
+
+</html>

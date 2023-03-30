@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html layout:decorator="home.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- tu dong format tren man hinh khac nhau -->
+
+<title>Search Category</title>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div layout:fragment="form-body" class="col-12 col-sm-10 col-md-10">
+		<div class="row">
+			<form th:action="@{/category/search}" method="get">
+				<div class="row">
+					<div class="col-12 col-md-2">
+						<input th:value="${name}" type="text" class="form-control" name="name"
+							placeholder="Tìm kiếm theo danh mục ...">
+					</div>
+					<!-- <div class="col-12 col-md-4">
+						<input type="text" th:value="${id}" class="form-control" name="id"
+							placeholder=" Tìm kiếm theo id ...">
+					</div>-->
+					<div class="col-12 col-md-3">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+					<div class="col-12 col-md-7">
+						<a th:href="@{/category/create}" class="btn w3-deep-orange" style="float: right;">Add</a>
+					</div>
+				</div>
+			</form>
+		</div>
+		<hr>
+		<div class="row w3-responsive">
+			<table class="table table-bordered w3-hoverable">
+				<thead>
+					<tr>
+						<th class="w3-center">ID</th>
+						<th class="w3-center">Tên danh mục</th>
+						<th class="w3-center">Tuỳ chọn</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="category : ${list}">
+						<td class="w3-center" th:text="${category.id}"></td>
+						<td class="w3-center" th:text="${category.name}"></td>
+						<td class="w3-center">
+							<a class="btn w3-red" th:data-id="${category.id}" th:data-name="${category.name}" onclick="showConfirm(this.getAttribute('data-id'), this.getAttribute('data-name'))">Delete</a>
+							<!-- <a class="btn w3-red" th:href="@{'/category/delete?id=' + ${category.id}}">Delete</a> -->
+							<!-- <a class="text-info" th:href="@{'/category/update?id=' + ${category.id}}">Update</a> -->
+							<a class="btn w3-blue" th:href="@{'/category/view?id=' + ${category.id}}">View</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	 <script type="text/javascript">
+	  	function showConfirm(id, name) {
+	  		$('#categoryName').text(name);
+	  		$('#yesOption').attr('href', '/category/delete?id=' + id);
+	  		$('#confirmId').modal('show');
+	  	}
+	  </script>
+	  
+	   <!-- Modal -->
+	  <div class="modal" id="confirmId">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		
+		      <!-- Modal Header -->
+		      <div class="modal-header">
+		        <h4 class="modal-title">Xác nhận</h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		
+		      <!-- Modal body -->
+		      <div class="modal-body">
+		        <p>Bạn có chắc muốn xóa " <span id="categoryName"></span> " ?</p>
+		      </div>
+		
+		      <!-- Modal footer -->
+		      <div class="modal-footer">
+		      	<a id="yesOption" type="button" class="btn btn-danger">Yes</a>
+		        <button type="button" class="btn w3-blue-gray" data-bs-dismiss="modal">No</button>
+		      </div>
+		
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="row undertable " style="float: right;">
+			<div class="row">
+				<ul class="pagination">
+					
+					<li th:if="${totalPage > 0}" class="page-item">
+						<a class="page-link" th:href="@{'/category/search?page='+ ${page - 1 < 0 ? 0 : (page - 1)} + '&id=' + ${id} + '&name=' + ${name}}">Previous</a>
+					</li>
+	
+					<li th:if="${totalPage > 0}" th:each="i: ${#numbers.sequence(0, totalPage - 1)}" class="page-item">
+						<a class="page-link" th:href="@{'/category/search?page='+ ${i} + '&id=' + ${id} + '&name=' + ${name}}" th:text="${i}"></a>
+					</li>
+	
+					<li th:if="${totalPage > 0}" class="page-item">
+						<a class="page-link" th:href="@{'/category/search?page='+ ${page + 1 >= totalPage ? (totalPage - 1) : (page + 1) } + '&id=' + ${id} + '&name=' + ${name}}">Next</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+	

@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html layout:decorator="home.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Update Category</title>
+</head>
+<body>
+	<div layout:fragment="form-body" class="col-12 col-sm-9">
+		<div class="row">
+			<h6>View Category</h6>
+		</div>
+		<hr/>
+		<div class="row">
+			<form th:action="@{/category/view}" method="get">
+				<div class="mb-3">
+					<label class="form-label">ID:</label> 
+					<input readonly="readonly" th:value="${category.id}" type="text" name="id" class="form-control">
+				</div>
+				<div class="mb-3">
+					<label class="form-label">Tên danh muc:</label> 
+					<input th:value="${category.name}" type="text" name="name" class="form-control" readonly="readonly">
+				</div>
+				
+				<div class="mb-3">
+					<a th:href="@{'/category/update?id=' + ${category.id}}" class="btn w3-purple" type="submit">Edit</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
